@@ -1,0 +1,178 @@
+@import "src/styles/styles";
+
+.wrapper{}
+
+.header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $hex;
+    z-index: 2;
+  }
+}
+.header__body{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+}
+.header__logo{
+  flex: 0 0 130px;
+  position: relative;
+  z-index: 3;
+
+  & img{
+    max-width: 100%;
+  }
+}
+.header__burger{
+  display: none;
+}
+
+.header__list{
+  display: flex;
+  position: relative;
+  z-index: 2;
+
+  & li{
+    list-style: none;
+    margin: 0 0 0 20px;
+  }
+}
+
+.header__link{
+  text-transform: uppercase;
+  color: $body;
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+
+  &:after{
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 100%;
+    height: 1px;
+    background: $black_br;
+  }
+
+  &:hover::after{
+    right: 0;
+    left: 100%;
+    transition: right .5s .0s, left .5s .5s;
+  }
+}
+
+span{
+  color: $brown_white;
+}
+
+/*Media*/
+
+@media (max-width: 1200px) {
+  .header__list li{
+    margin-left: 15px;
+  }
+}
+
+@media (max-width: 994px) {
+
+  body.lock{
+    overflow: hidden;
+  }
+
+  .header__body{
+    height: 55px;
+  }
+
+  .header__logo{
+    flex: 0 0 95px;
+  }
+
+  .header__burger{
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    z-index: 4;
+
+    & span{
+      position: absolute;
+      background-color: $body;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      top: 9px;
+      transition: all .3s ease 0s;
+    }
+
+    &:before,
+    &:after{
+      content: '';
+      background-color: $body;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transition: all .3s ease 0s;
+    }
+    &:before{
+      top: 0;
+    }
+
+    &:after{
+      bottom: 0;
+    }
+
+    &.active span{
+      transform: scale(0);
+    }
+
+    &.active:before{
+      transform: rotate(45deg);
+      top: 9px;
+    }
+
+    &.active:after{
+      transform: rotate(-45deg);
+      bottom: 9px;
+    }
+  }
+
+  .header__menu{
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    transition: all .3s ease 0s;
+    background-color: $gray_add;
+    padding: 70px 10px 20px 10px;
+
+    &.active{
+      top: 0;
+    }
+  }
+
+  .header__list{
+    display: block;
+
+    & li {
+      margin: 0 0 20px 0;
+    }
+  }
+}

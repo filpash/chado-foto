@@ -1,0 +1,54 @@
+@import "src/styles/styles";
+
+.social {
+  display: flex;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+}
+
+.social__text {
+  margin-right: 2rem;
+
+  color: $black_br;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.social__link  {
+  margin-right: 1rem;
+
+  &:hover .social__icon{
+    fill: $brown_white;
+  }
+}
+
+.social__icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  fill: $brown_black;
+
+  transition: fill .1s linear;
+
+  &--gh {
+    width: 25px;
+    height: 25px;
+  }
+
+  &--ln {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 385px) {
+  .social__text {
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+
+  .social__link {
+    margin-right: .5rem;
+  }
+}
