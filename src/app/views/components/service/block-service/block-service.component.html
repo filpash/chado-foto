@@ -43,30 +43,14 @@
 <div class="container">
   <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active" data-interval="10000">
-        <img src="assets/images/image_big-min.jpg" class="carousel-img d-block w-100" alt="...">
-        <h1 class="carousel-item__family">Семейная съёмка</h1>
-        <a class="batn batn--white" href="#" data-toggle="modal" data-target="#request-modal-family">подробнее</a>
-      </div>
-      <div class="carousel-item" data-interval="2000">
-        <img src="assets/images/image_2-big.jpg" class="carousel-img d-block w-100" alt="...">
-        <h1 class="carousel-item__family">Таинство крещения</h1>
-        <a class="batn batn--white" href="#" data-toggle="modal" data-target="#request-modal-orth">подробнее</a>
-      </div>
-      <div class="carousel-item">
-        <img src="assets/images/image_3-big.jpg" class="carousel-img d-block w-100" alt="...">
-        <h1 class="carousel-item__family">Таинство венчания</h1>
-        <a class="batn batn--white" href="#" data-toggle="modal" data-target="#request-modal-wedding">подробнее</a>
-      </div>
-      <div class="carousel-item">
-        <img src="assets/images/image_5-big.jpg" class="carousel-img d-block w-100" alt="...">
-        <h1 class="carousel-item__family">Съёмка в ожидании</h1>
-        <a class="batn batn--white" href="#" data-toggle="modal" data-target="#request-modal-waiting">подробнее</a>
-      </div>
-      <div class="carousel-item">
-        <img src="assets/images/image_6-big.jpg" class="carousel-img d-block w-100" alt="...">
-        <h1 class="carousel-item__family">Портретная съёмка</h1>
-        <a class="batn batn--white" href="#" data-toggle="modal" data-target="#request-modal-portrait">подробнее</a>
+      <div *ngFor="let item of slideItems; let i = index"
+           class="{{ item.carouselClass }}"
+           [ngClass]="{ 'active': i === 0 }"
+           [attr.data-interval]="item.dataInterval"
+      >
+        <img [src]="item.imageAddress" class="{{ item.imgAtrClass }}" alt="...">
+        <h1 class="{{ item.captionClass }}">{{ item.captionContent }}</h1>
+        <a class="{{ item.bathBtnClass }}" href="#" data-toggle="modal" [attr.data-target]="item.dataTarget">подробнее</a>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">

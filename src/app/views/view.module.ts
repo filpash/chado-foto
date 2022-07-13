@@ -20,7 +20,6 @@ import { ModalsComponent } from './layout/modals/modals.component';
 @NgModule({
   declarations: [
     AboutComponent,
-    AboutComponent,
     BlockAboutComponent,
     FooterComponent,
     HeaderComponent,

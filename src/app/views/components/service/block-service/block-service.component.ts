@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { CAROUSEL } from "../../../../core/tokens";
+import { ICarousel } from "../../../../models/ICarousel";
 
 @Component({
   selector: 'app-block-service',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlockServiceComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Inject(CAROUSEL) public carousel: ICarousel[]
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  get slideItems(): ICarousel[] {
+    return this.carousel;
   }
 
 }
