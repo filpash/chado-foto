@@ -4,6 +4,8 @@ import { AppRoutingModule } from "../app-routing.module";
 import { RouterModule } from "@angular/router";
 import { AboutComponent } from './pages/about/about.component';
 import { CoreModule } from "../core/core.module";
+import { AboutModule } from "./components/about/about.module";
+import { ServiceModule } from "./components/service/service.module";
 import { BlockAboutComponent } from './components/about/block-about/block-about.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -31,13 +33,16 @@ import { ModalsComponent } from './layout/modals/modals.component';
   exports: [
     AboutComponent,
     ServiceComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     RouterModule,
-    CoreModule
+    CoreModule,
+    AboutModule,
+    ServiceModule
   ]
 })
 export class ViewModule { }

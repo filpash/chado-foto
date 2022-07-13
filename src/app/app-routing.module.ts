@@ -1,13 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from "./views/pages/about/about.component";
-import { ServiceComponent } from "./views/pages/service/service.component";
 
 
 const routes: Routes = [
-  { path: 'about', component: AboutComponent },
-  { path: 'services', component: ServiceComponent },
-  { path: '', redirectTo: 'about', pathMatch: 'full' }
+  {
+    path: '',
+    children: [
+      {
+        path: 'about',
+        loadChildren: () => import('./views/components/about/about.module').then(m => m.AboutModule)
+      },
+      {
+        path: 'services',
+        loadChildren: () => import('./views/components/service/service.module').then(m => m.ServiceModule)
+      },
+      {
+        path: '',
+        redirectTo: 'about',
+        pathMatch: 'full'
+      }
+    ]
+  }
 ];
 
 @NgModule({
