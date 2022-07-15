@@ -19,6 +19,10 @@ const routes: Routes = [
         loadChildren: () => import('./views/components/portfolio/portfolio.module').then(m => m.PortfolioModule)
       },
       {
+        path: 'books',
+        loadChildren: () => import('./views/components/books/books.module').then(m => m.BooksModule)
+      },
+      {
         path: '',
         redirectTo: 'about',
         pathMatch: 'full'
