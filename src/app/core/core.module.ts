@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from "../app-routing.module";
 import { RouterModule } from "@angular/router";
-import { CAROUSEL } from "./tokens";
+import { CAROUSEL, COLLAPSE, WINDOW } from "./tokens";
 import { DATA } from "../../public/data";
 
 
@@ -15,7 +15,9 @@ import { DATA } from "../../public/data";
     RouterModule
   ],
   providers: [
-    { provide: CAROUSEL, useValue: DATA.carousel }
+    { provide: WINDOW,  useValue: window },
+    { provide: CAROUSEL, useValue: DATA.carousel },
+    { provide: COLLAPSE, useValue: DATA.collapse }
   ]
 })
 export class CoreModule { }
