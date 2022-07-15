@@ -15,6 +15,10 @@ const routes: Routes = [
         loadChildren: () => import('./views/components/service/service.module').then(m => m.ServiceModule)
       },
       {
+        path: 'portfolio',
+        loadChildren: () => import('./views/components/portfolio/portfolio.module').then(m => m.PortfolioModule)
+      },
+      {
         path: '',
         redirectTo: 'about',
         pathMatch: 'full'

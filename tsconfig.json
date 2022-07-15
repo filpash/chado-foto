@@ -21,6 +21,11 @@
       "dom"
     ]
   },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "index.d.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

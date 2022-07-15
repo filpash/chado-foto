@@ -1,0 +1,55 @@
+<!--Portfolio-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="portfolio-title">
+        <h3 class="portfolio-title__name">
+          Нажмите на раздел, чтобы скрыть его...
+        </h3><!--portfolio-title__name-->
+      </div><!--portfolio-title-->
+    </div><!--col-->
+  </div><!--row-->
+</div><!--container-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="portfolio-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div *ngFor="let item of collapseItems" class="portfolio portfolio-default">
+          <div class="portfolio-heading" role="tab" id="{{ item.accordionId }}">
+            <h4 class="portfolio-tit">
+              <a role="button"
+                 data-toggle="collapse"
+                 data-parent="#accordion"
+                 [attr.href]="item.dataTargetCollapse"
+                 aria-expanded="true"
+                 [attr.aria-controls]="item.ariaControlsCollapse"
+              >
+                {{ item.collapseBtnName }}
+              </a>
+            </h4>
+          </div>
+          <div id="{{ item.collapseId }}"
+               class="portfolio-collapse collapse in"
+               role="tabpanel"
+               [attr.aria-labelledby]="item.ariaLabelledBy"
+          >
+            <div class="portfolio-body">
+              <div class="gallery">
+                <a *ngFor="let image of item.images" href="{{ image['min'] }}" data-caption="">
+                  <img class="gallery-img" [src]="image['max']" alt="">
+                </a>
+              </div>
+            </div><!--portfolio-body-->
+          </div><!--portfolio-collapse-->
+        </div><!--portfolio portfolio-default-->
+      </div><!--portfolio-group-->
+    </div><!--col-->
+  </div><!--row-->
+</div><!--container-->
+
+<!--Social-->
+<app-social></app-social>
+<!--Footer-->
+<app-footer></app-footer>
