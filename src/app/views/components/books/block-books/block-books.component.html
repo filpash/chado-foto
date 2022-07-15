@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="books">
+    <div class="book__title_main">
+      <h3>Обзор фотокниг, входящих в пакет услуг</h3>
+    </div><!--book__title_main-->
+
+    <div *ngFor="let book of itemBooks">
+      <div class="book__intro">
+        <iframe width="{{ book.iframe.width }}"
+                height="{{ book.iframe.height }}"
+                [src]="book.iframe.src | safe"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
+                         picture-in-picture" allowfullscreen>
+        </iframe>
+      </div><!--book__intro-->
+
+      <div class="book__intro__title">
+        <h4 class="book__title">{{ book.title }}</h4>
+        <ul class="book__list" *ngFor="let strItem of book.listInfo">
+          <li class="book__list_item">
+            <p>{{ strItem }}</p>
+          </li>
+        </ul><!--book__list-->
+      </div><!--book__intro-->
+    </div>
+  </div><!--books-->
+</div><!--container-->
+
+<!--Social-->
+<app-social></app-social>
+<!--Footer-->
+<app-footer></app-footer>
